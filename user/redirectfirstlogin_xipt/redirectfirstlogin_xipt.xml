@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.6" type="plugin" group="user" method="upgrade">
+	<name>User - Redirect First Login</name>
+	<author>Techjoomla</author>
+	<creationDate>25th July 2011</creationDate>	
+	<copyright>Copyright (C) 2011 Techjoomla. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later.</license>	
+	<authorUrl>http://techjoomla.com</authorUrl>
+	<version>1.0.0</version>
+	<description>Plugin to redirect user on first login. Supports Jomsocial Profile Types from joomlaxi</description>
+	<files>
+		<filename plugin="redirectfirstlogin_xipt">redirectfirstlogin_xipt.php</filename>
+	</files>
+	<params>	
+			<param name="destination" type="textarea" cols="30" default="index.php" label="Redirect destination URL" description="Destination URL of redirection when user first logs in. Use a relative path including index.php" />
+	</params>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="destination" type="textarea" cols="30" default="index.php" label="Redirect destination URL" description="Destination URL of redirection when user first logs in. Use a relative path including index.php" />
+			</fieldset>			
+		</fields>
+	</config>	
+</install>
