@@ -71,25 +71,25 @@ function plgSearchK2Categories($text, $phrase = '', $ordering = '', $areas = nul
     	WHERE ca.parent=cb.id AND cb.parent=cc.id AND ca.published = 1 AND cb.published = 1 AND cc.published = 1
     	AND ca.access <= {$access} AND ca.name LIKE {$text}";
 */
-		$query = "SELECT ca.id, ca.name AS title, ca.description as text, cb.name as section
-    	FROM #__k2_categories AS ca, #__k2_categories AS cb
-    	WHERE ca.parent=cb.id AND ca.published = 1 AND ca.access <= {$access} AND ca.name LIKE {$text}";
+		$query = "SELECT id, name AS title, description AS text
+    	FROM #__k2_categories
+    	WHERE published = 1 AND access <= {$access} AND name LIKE {$text}";
 
 		switch ($ordering) {
 
 			case 'alpha':
-				$query.= 'ORDER BY ca.name ASC';
+				$query.= 'ORDER BY name ASC';
 				break;
 
 			case 'category':
-				$query.= 'ORDER BY cb.name ASC';
+				$query.= 'ORDER BY name ASC';
 				break;
 
 			case 'newest':
 			case 'oldest':
 			case 'popular':
 			default:
-				$query.= 'ORDER BY ca.ordering ASC';
+				$query.= 'ORDER BY ordering ASC';
 				break;
 		}
 
@@ -97,12 +97,19 @@ function plgSearchK2Categories($text, $phrase = '', $ordering = '', $areas = nul
 		$list = $db->loadObjectList();
 
 
-
 		foreach ($list as $key=>$item) {
+			// We need to get the section here since the above query might fail if theres no parent
+			// Of course there could be a right join.. but I'm lazy for now
+			// TODO: Remove this query and implement a right join on the top query
+			
+			$qry = "SELECT cb.name as section
+			FROM #__k2_categories AS ca, #__k2_categories AS cb
+			WHERE ca.parent=cb.id AND ca.id = {$item->id}";
+			$db->setQuery($qry);
+			$list[$key]->section = $db->loadResult();
 			$list[$key]->href = JRoute::_(K2HelperRoute::getCategoryRoute($item->id));
 
 		}
-
 
 	}
 
