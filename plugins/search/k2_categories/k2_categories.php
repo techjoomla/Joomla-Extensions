@@ -64,11 +64,16 @@ function plgSearchK2Categories($text, $phrase = '', $ordering = '', $areas = nul
 		}
 
 		$text	= $db->Quote( '%'.$db->getEscaped( $text, true ).'%', false );
-		$query = "
+		
+/*		$query = "
 		SELECT ca.id, ca.name AS title, ca.description as text, cb.name as section
     	FROM #__k2_categories AS ca, #__k2_categories AS cb, #__k2_categories AS cc
     	WHERE ca.parent=cb.id AND cb.parent=cc.id AND ca.published = 1 AND cb.published = 1 AND cc.published = 1
     	AND ca.access <= {$access} AND ca.name LIKE {$text}";
+*/
+		$query = "SELECT ca.id, ca.name AS title, ca.description as text, cb.name as section
+    	FROM #__k2_categories AS ca, #__k2_categories AS cb
+    	WHERE ca.parent=cb.id AND ca.published = 1 AND ca.access <= {$access} AND ca.name LIKE {$text}";
 
 		switch ($ordering) {
 
