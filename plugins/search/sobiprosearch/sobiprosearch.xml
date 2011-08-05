@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="search">
+	<name>Search - Sobiprosearch</name>
+	<author>Joomla! Project</author>
+	<creationDate>3 August</creationDate>
+	<copyright></copyright>
+	<license></license>
+	<authorEmail></authorEmail>
+	<authorUrl></authorUrl>
+	<version></version>
+	<description>Allows Searching of Content Section information from sobipro</description>
+	<files>
+		<filename plugin="sobiprosearch">sobiprosearch.php</filename>
+	</files>
+	<params>
+		<param name="search_limit" type="text" size="5" default="50" label="Search Limit" description="Number of Search items to return"/>
+		<param name="search_field" type="text" size="15" default="" label="Fields to search" description="Field ids of fields to search"/>
+		<param name="menu_itemid" type="text" size="15" default="" label="Menu Item Id" description="Menu Item Identification to set a results page context"/>
+	</params>
+</install>
