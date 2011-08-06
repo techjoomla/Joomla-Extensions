@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SobiProApp xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="https://xml.sigsiu.net/SobiPro/application.xsd">
+  <name>SP-Date Field</name>
+  <id>date_field</id>
+  <authorName>Techjoomla</authorName>
+  <authorEmail>contact@techjoomla.com</authorEmail>
+  <authorUrl>http://www.techjoomla.com</authorUrl>
+  <copyright>Techjoomla</copyright>
+  <license>GNU General Public License v3</license>
+  <creationDate>2011-05-07</creationDate>
+  <fieldType typeId="date" fieldGroup="special">Date</fieldType>
+  <version>1.0</version>
+  <description>Add a Date type field to SOBI Pro</description>   
+  <files path="adm:field">
+    <folder>Adm/</folder>   
+  </files>
+  <files path="fields:">
+    <file>date.php</file>   
+  </files>
+  <requirements>
+    <core version="1.0.0.1000"/>
+  </requirements>
+</SobiProApp>
+
