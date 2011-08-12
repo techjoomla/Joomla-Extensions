@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/component-install.dtd">
+<install type="module" version="1.5.0" method="upgrade">
+	<name>Show Poplualr Deals</name>
+	<creationDate>8 AUgust 2011</creationDate>
+	<author>Tekdi</author>
+	<authorEmail></authorEmail>
+	<authorUrl></authorUrl>
+	<copyright></copyright>
+	<license></license>
+	<version></version>
+	<description></description>
+	<svn>Shows entried from selected section.</svn>
+	<SobiPro>
+	  <requirements>
+	    <core version="1.0.0.1358"/>
+	  </requirements> 	
+	</SobiPro>
+	<files>
+		<filename module="mod_deals">mod_deals.php</filename>
+		<filename>helper.php</filename>
+		<filename>spelements.php</filename>
+		<filename>spform.php</filename>
+		<filename>view.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+
+	</files>
+	<languages folder="language/en-GB">
+        <language tag="en-GB">en-GB.mod_deals.ini</language>
+  </languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/modules/mod_deals/">
+				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+				<field name="SOBI_SELECT_SECTION" type="spform" msg="SOBI_SELECT_SECTION_EXPL" />
+				<field name="sid" type="spform" />
+				<field name="spOrder" type="spform" />
+				<field name="entriesLimit" type="text" default="5" label="SOBI_ENTRIES_LIMIT" size="5" />
+				<field name="deal_value" type="text" default="5" label="SOBI_DEAL_VALUE_ID" size="5" />
+				<field name="image" type="text" default="10" label="SOBI_IMAGE_FIELD_ID" size="5" />
+				<field name="title" type="text" default="3" label="SOBI_TITLE_FIELD_ID" size="5" />
+				<field name="show_image" type="list" default="1" label="SOBI_SHOW_IMAGE">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="show_deal_value" type="list" default="1" label="SHOW_DEAL_VALUE">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+	<params addpath="/modules/mod_deals/">
+		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+		<param name="SOBI_SELECT_SECTION" type="spelements" msg="SOBI_SELECT_SECTION_EXPL" />
+		<!-- <param name="cid" type="spsection" msg="SOBI_SELECT_CATEGORY_EXPL" /> -->
+		<param name="sid" type="spelements" />
+		<param name="spOrder" type="spelements" />
+		<param name="entriesLimit" type="text" default="5" label="SOBI_ENTRIES_LIMIT" size="5" />
+		<param name="deal_value" type="text" default="5" label="SOBI_DEAL_VALUE_ID" size="5" />
+		<param name="image" type="text" default="37" label="SOBI_IMAGE_FIELD_ID" size="5" />
+		<param name="title" type="text" default="3" label="SOBI_TITLE_FIELD_ID" size="5" />
+		<param name="show_image" type="list" default="1" label="SOBI_SHOW_IMAGE">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="show_deal_value" type="list" default="1" label="SHOW_DEAL_VALUE">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+</install>

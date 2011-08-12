@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.6.0" client="site" method="upgrade">
+	<name>DJ-Image Slider</name>
+	<creationDate>January 2011</creationDate>	
+	<author>Blue Constant Media LTD</author>
+	<copyright>Copyright (C) 2010 Blue Constant Media LTD, All rights reserved.</copyright>
+	<license> http://www.gnu.org/licenses GNU/GPL</license>
+	<authorEmail>contact@design-joomla.eu</authorEmail>
+	<authorUrl>http://design-joomla.eu</authorUrl>
+	<version>1.3 RC4</version>
+	<description>DJ-Image Slider Module</description>
+	<files>
+		<filename module="mod_djimageslider">mod_djimageslider.php</filename>
+		<filename>mod_djimageslider.xml</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+		<folder>assets</folder>
+		<folder>language</folder>
+	</files>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="slider_source" type="list" default="0" label="MOD_DJIMAGESLIDER_SLIDER_SOURCE" description="MOD_DJIMAGESLIDER_SLIDER_SOURCE_DESC">
+					<option value="0">MOD_DJIMAGESLIDER_FOLDER</option>
+					<option value="1">MOD_DJIMAGESLIDER_COMPONENT</option>
+				</field>
+				<field name="slider_type" type="list" default="0" label="MOD_DJIMAGESLIDER_SLIDER_TYPE" description="MOD_DJIMAGESLIDER_SLIDER_TYPE_DESC">
+					<option value="0">MOD_DJIMAGESLIDER_HORIZONTAL</option>
+					<option value="1">MOD_DJIMAGESLIDER_VERTICAL</option>
+					<option value="2">MOD_DJIMAGESLIDER_FADE</option>
+				</field>
+				<field name="link_image" type="list" default="1" label="MOD_DJIMAGESLIDER_LINK_IMAGE" description="MOD_DJIMAGESLIDER_LINK_IMAGE_DESC">
+					<option value="0">MOD_DJIMAGESLIDER_DONT_LINK</option>
+					<option value="1">MOD_DJIMAGESLIDER_HYPERLINK</option>
+					<option value="2">MOD_DJIMAGESLIDER_OPEN_IMAGE_IN_MODAL</option>
+				</field>
+				<field type="spacer" label="&lt;hr &#47;&gt;" />
+				<field type="spacer" label="MOD_DJIMAGESLIDER_FOLDER_AS_SOURCE_SETTINGS" />
+				<field name="image_folder" type="text" default="images/sampledata/fruitshop" size="50" label="MOD_DJIMAGESLIDER_IMAGE_FOLDER" description="MOD_DJIMAGESLIDER_IMAGE_FOLDER_DESC" />
+				<field name="link" type="text" default="" size="50" label="MOD_DJIMAGESLIDER_LINK" description="MOD_DJIMAGESLIDER_LINK_DESC" />
+				
+				<field type="spacer" label="&lt;hr &#47;&gt;" />
+				<field type="spacer" label="MOD_DJIMAGESLIDER_COMPONENT_AS_SOURCE_SETTINGS" />
+				<field name="category" type="category" extension="com_djimageslider" label="MOD_DJIMAGESLIDER_SLIDES_CATEGORY" description="MOD_DJIMAGESLIDER_SLIDES_CATEGORY_DESC" />
+				<field name="show_title" type="radio" default="1" label="MOD_DJIMAGESLIDER_SHOW_TITLE" description="MOD_DJIMAGESLIDER_SHOW_TITLE_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="show_desc" type="radio" default="1" label="MOD_DJIMAGESLIDER_SHOW_DESCRIPTION" description="MOD_DJIMAGESLIDER_SHOW_DESCRIPTION_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="show_readmore" type="radio" default="0" label="MOD_DJIMAGESLIDER_SHOW_READMORE" description="MOD_DJIMAGESLIDER_SHOW_READMORE_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="link_title" type="radio" default="1" label="MOD_DJIMAGESLIDER_LINK_TITLE" description="MOD_DJIMAGESLIDER_LINK_TITLE_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="link_desc" type="radio" default="0" label="MOD_DJIMAGESLIDER_LINK_DESCRIPTION" description="MOD_DJIMAGESLIDER_LINK_DESCRIPTION_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="limit_desc" type="text" default="" size="10" label="MOD_DJIMAGESLIDER_DESCRIPTION_LIMIT" description="MOD_DJIMAGESLIDER_DESCRIPTION_LIMIT_DESC" />
+				
+				<field type="spacer" label="&lt;hr &#47;&gt;" />
+				<field type="spacer" label="BASIC SLIDER SETTINGS" description="MOD_DJIMAGESLIDER_SLIDER_DIMENSIONS" />
+				<field type="spacer" label="" />
+				<field name="title" type="text" default="3" size="10" label="Title Field Id" description="Title fieldid from sobipro" />
+				<field name="image" type="text" default="10" size="10" label="Image Field Id" description="Image Field Id" />
+				<field name="image_width" type="text" default="150" size="10" label="MOD_DJIMAGESLIDER_SLIDE_WIDTH" description="MOD_DJIMAGESLIDER_SLIDE_WIDTH_DESC" />
+				<field name="image_height" type="text" default="90" size="10" label="MOD_DJIMAGESLIDER_SLIDE_HEIGHT" description="MOD_DJIMAGESLIDER_SLIDE_HEIGHT_DESC" />
+				<field name="fit_to" type="list" default="0" label="MOD_DJIMAGESLIDER_FIT_SIZE_TO" description="MOD_DJIMAGESLIDER_FIT_SIZE_TO_DESC">
+					<option value="0">MOD_DJIMAGESLIDER_SLIDE_AUTO</option>
+					<option value="1">MOD_DJIMAGESLIDER_SLIDE_WIDTH</option>
+					<option value="2">MOD_DJIMAGESLIDER_SLIDE_HEIGHT</option>
+				</field>
+				<field name="visible_images" type="text" default="3" size="10" label="MOD_DJIMAGESLIDER_VISIBLE_IMAGES" description="MOD_DJIMAGESLIDER_VISIBLE_IMAGES_DESC" />
+				<field name="space_between_images" type="text" default="10" size="10" label="MOD_DJIMAGESLIDER_SPACE_BETWEEN_IMAGES" description="MOD_DJIMAGESLIDER_SPACE_BETWEEN_IMAGES_DESC" />
+				<field name="max_images" type="text" default="20" size="10" label="MOD_DJIMAGESLIDER_MAX_IMAGES" description="MOD_DJIMAGESLIDER_MAX_IMAGES_DESC" />
+				<field name="sort_by" type="list" default="1" label="MOD_DJIMAGESLIDER_SORT_BY" description="MOD_DJIMAGESLIDER_SORT_BY_DESC">
+					<option value="1">MOD_DJIMAGESLIDER_FILE_NAME_ORDERING</option>
+					<option value="0">MOD_DJIMAGESLIDER_RANDOMISE</option>
+				</field>
+				<field name="effect" type="list" default="Cubic" label="MOD_DJIMAGESLIDER_SLIDE_EFFECT" description="MOD_DJIMAGESLIDER_SLIDE_EFFECT_DESC">
+					<option value="Linear">Linear</option>
+					<option value="Cubic">Cubic</option>
+					<option value="Expo">Expo</option>
+					<option value="Circ">Circ</option>
+					<option value="Back">Back</option>
+					<option value="Bounce">Bounce</option>
+					<option value="Elastic">Elastic</option>
+				</field>
+				<field name="autoplay" type="radio" default="1" label="MOD_DJIMAGESLIDER_AUTOPLAY" description="MOD_DJIMAGESLIDER_AUTOPLAY_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="show_buttons" type="radio" default="1" label="MOD_DJIMAGESLIDER_SHOW_PLAY/PAUSE" description="MOD_DJIMAGESLIDER_SHOW_PLAY/PAUSE_DESC">
+					<option value="0">JNO</option>
+					<option value="2">JYES</option>
+					<option value="1">On mouse over</option>
+				</field>
+				<field name="show_arrows" type="radio" default="1" label="MOD_DJIMAGESLIDER_SHOW_NEXT/PREV" description="MOD_DJIMAGESLIDER_SHOW_NEXT/PREV_DESC">
+					<option value="0">JNO</option>
+					<option value="2">JYES</option>
+					<option value="1">On mouse over</option>
+				</field>
+				<field name="show_custom_nav" type="radio" default="0" label="MOD_DJIMAGESLIDER_SHOW_CUSTOM_NAVIGATION" description="MOD_DJIMAGESLIDER_SHOW_CUSTOM_NAVIGATION_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+			
+			<fieldset name="advanced">
+	
+				<field type="spacer" label="CUSTOMISE SLIDE DESCRIPTION" />
+				<field name="desc_width" type="text" default="" size="10" label="MOD_DJIMAGESLIDER_DESCRIPTION_WIDTH" description="MOD_DJIMAGESLIDER_DESCRIPTION_WIDTH_DESC" />
+				<field name="desc_bottom" type="text" default="0" size="10" label="MOD_DJIMAGESLIDER_DESCRIPTION_VERTICAL_POSITION" description="MOD_DJIMAGESLIDER_DESCRIPTION_VERTICAL_POSITION_DESC" />
+				<field name="desc_horizontal" type="text" default="0" size="10" label="MOD_DJIMAGESLIDER_DESCRIPTION_HORIZONTAL_POSITION" description="MOD_DJIMAGESLIDER_DESCRIPTION_HORIZONTAL_POSITION_DESC" />
+			
+				<field type="spacer" label="&lt;hr &#47;&gt;" />
+				<field type="spacer" label="CUSTOMISE BUTTONS" />
+				<field name="left_arrow" type="text" default="" size="50" label="MOD_DJIMAGESLIDER_PREV_BUTTON" description="MOD_DJIMAGESLIDER_PREV_BUTTON_DESC" />
+				<field name="right_arrow" type="text" default="" size="50" label="MOD_DJIMAGESLIDER_NEXT_BUTTON" description="MOD_DJIMAGESLIDER_NEXT_BUTTON_DESC" />
+				<field name="play_button" type="text" default="" size="50" label="MOD_DJIMAGESLIDER_PLAY_BUTTON" description="MOD_DJIMAGESLIDER_PLAY_BUTTON_DESC" />
+				<field name="pause_button" type="text" default="" size="50" label="MOD_DJIMAGESLIDER_PAUSE_BUTTON" description="MOD_DJIMAGESLIDER_PAUSE_BUTTON_DESC" />
+				<field name="arrows_top" type="text" default="30" size="10" label="MOD_DJIMAGESLIDER_NAV_BAR_VERTICAL_POSITION" description="MOD_DJIMAGESLIDER_NAV_BAR_VERTICAL_POSITION_DESC" />
+				<field name="arrows_horizontal" type="text" default="5" size="10" label="MOD_DJIMAGESLIDER_NAV_BAR_HORIZONTAL_POSITION" description="MOD_DJIMAGESLIDER_NAV_BAR_HORIZONTAL_POSITION_DESC" />
+				
+				<field type="spacer" label="&lt;hr &#47;&gt;" />
+				<field type="spacer" label="SLIDE EFFECT OPTIONS" />
+				<field name="effect_type" type="list" default="0" label="MOD_DJIMAGESLIDER_SLIDE_EFFECT_TYPE" description="MOD_DJIMAGESLIDER_SLIDE_EFFECT_TYPE_DESC">
+					<option value="0">MOD_DJIMAGESLIDER_SLIDE_AUTO</option>
+					<option value="easeIn">easeIn</option>
+					<option value="easeOut">easeOut</option>
+					<option value="easeInOut">easeInOut</option>
+				</field>
+				<field name="duration" type="text" default="" size="10" label="MOD_DJIMAGESLIDER_SLIDE_DURATION" description="MOD_DJIMAGESLIDER_SLIDE_DURATION_DESC" />
+				<field name="delay" type="text" default="" size="10" label="MOD_DJIMAGESLIDER_NEXT_SLIDE_DELAY" description="MOD_DJIMAGESLIDER_NEXT_SLIDE_DELAY_DESC" />
+				<field type="spacer" label="&lt;hr &#47;&gt;" />
+				<field name="preload" type="text" default="800" size="10" label="MOD_DJIMAGESLIDER_PRELOAD_DELAY_TIME" description="MOD_DJIMAGESLIDER_PRELOAD_DELAY_TIME_DESC" />
+				
+			</fieldset>
+			
+			<fieldset name="OTHER">
+	
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="0"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option	value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+				
+			</fieldset>
+		</fields>
+	</config>
+	
+</extension>

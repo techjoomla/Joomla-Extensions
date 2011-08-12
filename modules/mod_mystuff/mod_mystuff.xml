@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+    <name>MyStuff Page!</name>
+    <author>TWS</author>
+    <version>1.5.0</version>
+    <description>Mystuff page module.</description>
+    <files>
+        <filename>mod_mystuff.xml</filename>
+        <filename module="mod_mystuff">mod_mystuff.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/index.html</filename>
+    </files>
+    <params>
+    </params>
+</install>
+

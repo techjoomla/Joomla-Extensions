@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="content">
+	<name>Content - RTMP</name>
+	<author>Joomla! Project</author>
+	<creationDate>July 2007</creationDate>
+	<copyright>Copyright (C) 2005 - 2010 Open Source Matters. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>admin@joomla.org</authorEmail>
+	<authorUrl>www.joomla.org</authorUrl>
+	<version>1.0</version>
+	<description>An example content plugin</description>
+	<files>
+		<filename plugin="rtmp">rtmp.php</filename>
+	</files>
+	<params>
+		<param name="aws_key" label="AWS Key" type="text" />
+		<param name="aws_pem" label="Certificate file name" type="text" description="Filename for the certificate. File should be kept in plugins/content/rtmp/certificate" />
+		<param name="duration" label="Expiry in seconds" type="text" />
+		<param name="video_width" label="Video Width" type="text" />
+		<param name="video_height" label="Video Height" type="text" />
+		<param name="markers" label="Show Markers" type="radio">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+	</params>
+</install>

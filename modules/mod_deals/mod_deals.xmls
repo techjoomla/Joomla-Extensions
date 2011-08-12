@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/component-install.dtd">
+<install type="module" version="1.5.0" method="upgrade">
+	<name>Show Poplualr Deals</name>
+	<creationDate>8 AUgust 2011</creationDate>
+	<author>Tekdi</author>
+	<authorEmail></authorEmail>
+	<authorUrl></authorUrl>
+	<copyright></copyright>
+	<license></license>
+	<version></version>
+	<description></description>
+	<svn>Shows entried from selected section.</svn>
+	<SobiPro>
+	  <requirements>
+	    <core version="1.0.0.1358"/>
+	  </requirements> 	
+	</SobiPro>
+	<files>
+		<filename module="mod_deals">mod_deals.php</filename>
+		<filename>helper.php</filename>
+		<filename>spelements.php</filename>
+		<filename>spform.php</filename>
+		<filename>view.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+
+	</files>
+	<languages folder="language/en-GB">
+        <language tag="en-GB">en-GB.mod_deals.ini</language>
+  </languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/modules/mod_deals/">
+				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+				<field name="section" type="spform" msg="Select Section" />
+				<field name="sid" type="spform" />
+				<field name="spOrder" type="spform" />
+				<field name="entriesLimit" type="text" default="5" label="Entries Limit" size="5" />
+				<param name="entriesLimit" type="text" default="5" label="Entries Limit" size="5" />
+				<param name="show_image" type="list" default="0" label="Show Image">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</param>
+				<param name="show_fine_print" type="list" default="0" label="Show Fine Print">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</param>
+			</fieldset>
+		</fields>
+	</config>
+	<params addpath="/modules/mod_sobipro_entries/">
+		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="PARAMMODULECLASSSUFFIX" />
+		<param name="section" type="spelements" msg="Select Section" />
+		<!-- <param name="cid" type="spsection" msg="SOBI_SELECT_CATEGORY_EXPL" /> -->
+		<param name="sid" type="spelements" />
+		<param name="spOrder" type="spelements" />
+		<field name="fine_print" type="text" default="5" label="Fine Print Id From Sobipro" size="5" />
+		<param name="entriesLimit" type="text" default="5" label="Entries Limit" size="5" />
+		<param name="show_image" type="list" default="0" label="Show Image">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="show_fine_print" type="list" default="0" label="Show Fine Print">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+</install>
