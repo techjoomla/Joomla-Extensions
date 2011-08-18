@@ -1,0 +1,12 @@
+=sobiprosearch (1.5)
+Searches Sobi pro items. Possible to select which fields are searched
+
+=k2_categories (1.5)
+Search k2 category title & description. Issue is that even if a super parent category is unpublished, it will show up in the results.
+
+=content_match (1.5)
+Searches Joomla core content using match against
+
+=users (1.6)
+Searches Joomla users - name only. Links to easyblog profile
+Todo: Add configuration to link to Jomsocial, easyblog etc

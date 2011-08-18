@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.5" type="plugin" group="search" method="upgrade">
+	<name>Search - Users</name>
+	<author>Grigor Mihov</author>
+	<creationDate>May 2010</creationDate>
+	<copyright>Copyright (C) 2010 StyleWare. All rights reserved.</copyright>
+	<license>GNU/GPL 2</license>
+	<authorEmail>paypal@styleware.eu</authorEmail>
+	<authorUrl>www.styleware.eu</authorUrl>
+	<version>1.0</version>
+	<description>Jomsocial Users Search</description>
+	<files>
+		<filename plugin="users">users.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.plg_search_users.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				
+				<field name="search_limit" type="text"
+					default="50"
+					description="Number of Search items to return"
+					label="Search Limit"
+					size="5"
+				/>
+				<field name="enable_realnamme" type="list"
+					default="1"
+					description="Search user's real name"
+					label="Search Real Name"
+				>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				
+				<field name="hide_superadmin" type="list"
+					default="1"
+					description="Hide Superadmin from search result"
+					label="Hide Superadmin"
+				>
+					<option value="1">Yes</option>
+			<option value="0">No</option>
+			</field>
+		</fieldset>
+		</fields>
+	</config>			
+		  
+</extension>
