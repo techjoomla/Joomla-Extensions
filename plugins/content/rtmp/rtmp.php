@@ -23,7 +23,9 @@ class plgContentRtmp extends JPlugin
 {
 	function onPrepareContent( &$article, &$params, $limitstart )
 	{
-
+		//$_SESSION['shantanu'] = "shantanu";
+		//print_r($_SESSION);
+		//die('in');
 		$duration = $this->params->get('duration', 7200);
 		$vars['video_width'] = $this->params->get('video_width', 640);
 		$vars['video_height'] = $this->params->get('video_height', 480);
@@ -34,7 +36,19 @@ class plgContentRtmp extends JPlugin
 			$doc = JFactory::getDocument();
 			$doc->addScript(JURI::base() . 'plugins/content/rtmp/player/jwplayer.js');
 			$file = $matches[1][0];
-			$signed_url = $this->getSignedURL($file, $duration);
+			
+			// Encryption code
+			/*$key = 'ashwin';*/
+			$rand_no = rand(0,1000);
+			/*$string = $file;//$file;//' string to be encrypted ';//$file;
+			$encrypted = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5($key), $string, MCRYPT_MODE_CBC, md5(md5($key))));
+			$session =& JFactory::getSession();
+			$session->set('security_code_'.$rand_no, $encrypted);*/
+			// End ecnryption
+			
+			$file_nomp4 = str_replace('mp4:', '', $file);
+			$signed_url = $this->getSignedURL($file_nomp4, $duration);
+			//$signed_url = 'mp4:'.$this->get_private_object_url('s2u7kzc90opy5i.cloudfront.net/', $file_nomp4, '40 minutes');
 			
 			$markers = $this->_getMarkers($article->extra_fields[0]->value);
 			if ($this->params->get('markers')) {
@@ -61,9 +75,10 @@ class plgContentRtmp extends JPlugin
 		$keyPairId = $this->params->get('aws_key');
 		$pemfile = $this->params->get('aws_pem');
 		$pemfile_loc = dirname(__FILE__).DS.'rtmp'.DS.'certificate'.DS.$pemfile;
+		$resource_url = $resource;
 
 		$expires = time() + $timeout; //Time out in seconds
-		$json = '{"Statement":[{"Resource":"'.$resource.'","Condition":{"DateLessThan":{"AWS:EpochTime":'.$expires.'}}}]}';		
+		$json = '{"Statement":[{"Resource":"'.$resource_url.'","Condition":{"DateLessThan":{"AWS:EpochTime":'.$expires.'}}}]}';		
 		
 		//Read Cloudfront Private Key Pair
 		$fp=fopen($pemfile_loc, "r"); 
@@ -91,7 +106,8 @@ class plgContentRtmp extends JPlugin
 
 		//Construct the URL
 		$url = $resource.'?Expires='.$expires.'&Signature='.$signature.'&Key-Pair-Id='.$keyPairId;
-		
+		//echo $url;
+		//die('in');
 		return $url;
 	}
 	
@@ -112,6 +128,7 @@ class plgContentRtmp extends JPlugin
 	
 	function _obfuscate($file) {
 
+		return $file;
 		$user = JFactory::getUser();		
 		$file = htmlspecialchars_decode($file);
 		$crypt = $file;
@@ -164,6 +181,7 @@ class plgContentRtmp extends JPlugin
 		$html = '';
 		if (!count($markers)) return $html;
 		
+		$html .= '<div class="componentheading">Table of Contents</div>';
 		foreach ($markers as $marker) {
 			$secs = str_pad(($marker->start % 60), 2, STR_PAD_LEFT);
 			$mins = floor($marker->start/60);
@@ -173,7 +191,5 @@ class plgContentRtmp extends JPlugin
 		
 		return $html;
 	}
-
-
 
 }
