@@ -1,0 +1,5 @@
+=com_quickreg
+Community Builder Quick Registration component
+
+=com_quickregistration
+Jomsocial Quick Registration component
