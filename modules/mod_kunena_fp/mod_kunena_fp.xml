@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install>
+<install type="module" version="1.5.0" method="upgrade">
+	<name>Kunena Featured Profile</name>
+	<version>1.7.0</version>
+	<creationDate>2011-09-15</creationDate>
+	<build>62</build>
+	<author>Tekdi Web Solutions</author>
+	<authorEmail>extensions@tekdi.net</authorEmail>
+	<authorUrl>http://www.tekdi.net</authorUrl>
+	<copyright>(C)2010-2011 Tekdi Web Solutions. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<description>MOD_KUNENA_FP_DESCRIPTION</description>
+	
+	<files>
+		<filename module="mod_kunena_fp">mod_kunena_fp.php</filename>
+		<filename>class.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+	
+	<languages folder="languages">
+		<language tag="en-GB">en-GB.mod_kunena_fp.ini</language>
+	</languages>
+	
+	<params>
+		<param name="k_fp_id" type="text" default="" label="MOD_KUNENA_FP_ID" description="MOD_KUNENA_FP_ID" />
+		<param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="k_fp_avatar" type="radio" default="1" label="MOD_KUNENA_FP_AVATAR" description="MOD_KUNENA_FP_AVATAR_DESC" >
+			<option value="">MOD_KUNENA_FP_HIDE</option>
+			<option value="1">MOD_KUNENA_FP_SHOW</option>
+		</param>
+		<param name="k_fp_name_uname" type="radio" default="1" label="MOD_KUNENA_FP_NAME_UNAME" description="MOD_KUNENA_FP_NAME_UNAME_DESC" >
+			<option value="">MOD_KUNENA_FP_NAME</option>
+			<option value="1">MOD_KUNENA_FP_USERNAME</option>
+		</param>
+		<param name="k_fp_location" type="radio" default="1" label="MOD_KUNENA_FP_LOCATION" description="MOD_KUNENA_FP_LOCATION_DESC" >
+			<option value="">MOD_KUNENA_FP_HIDE</option>
+			<option value="1">MOD_KUNENA_FP_SHOW</option>
+		</param>
+		<param name="k_fp_personaltext" type="radio" default="1" label="MOD_KUNENA_FP_PERSONALTEXT" description="MOD_KUNENA_FP_PERSONALTEXT_DESC">
+			<option value="">MOD_KUNENA_FP_HIDE</option>
+			<option value="1">MOD_KUNENA_FP_SHOW</option>
+		</param>
+		<param name="k_fp_profilelink" type="radio" default="" label="MOD_KUNENA_FP_PROFILELINK" description="MOD_KUNENA_FP_PROFILELINK_DESC">
+			<option value="">MOD_KUNENA_FP_HIDE</option>
+			<option value="1">MOD_KUNENA_FP_SHOW</option>
+		</param>
+		<param name="k_fp_profilelinktext" type="text" default="View Profile" label="MOD_KUNENA_FP_PROFILELINKTEXT" description="MOD_KUNENA_FP_PROFILELINKTEXT" />
+	</params>
+	<params group="advanced">
+		<param name="cache" type="list" default="1" label="MOD_KUNENA_FP_CACHING" description="MOD_KUNENA_FP_CACHING_DESC">
+			<option value="0">MOD_KUNENA_FP_NEVER</option>
+		</param>
+		<param name="moduleclass_sfx" type="text" default="" label="MOD_KUNENA_FP_PARAMMODULECLASSSUFFIX" description="MOD_KUNENA_FP_PARAMMODULECLASSSUFFIX_DESC" />
+	</params>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="k_fp_id" type="text" default="" label="MOD_KUNENA_FP_ID" description="MOD_KUNENA_FP_ID_DESC" />
+				<field name="k_fp_avatar" type="radio" default="" label="MOD_KUNENA_FP_AVATAR" description="MOD_KUNENA_FP_AVATAR_DESC" >
+					<option value="">MOD_KUNENA_FP_HIDE</option>
+					<option value="1">MOD_KUNENA_FP_SHOW</option>
+				</field>
+				<field name="k_fp_name_uname" type="radio" default="" label="MOD_KUNENA_FP_NAME_UNAME" description="MOD_KUNENA_FP_NAME_UNAME_DESC" >
+					<option value="">MOD_KUNENA_FP_NAME</option>
+					<option value="1">MOD_KUNENA_FP_USERNAME</option>
+				</field>
+				<field name="k_fp_location" type="radio" default="" label="MOD_KUNENA_FP_LOCATION" description="MOD_KUNENA_FP_LOCATION_DESC" >
+					<option value="">MOD_KUNENA_FP_HIDE</option>
+					<option value="1">MOD_KUNENA_FP_SHOW</option>
+				</field>
+				<field name="k_fp_personaltext" type="radio" default="" label="MOD_KUNENA_FP_PERSONALTEXT" description="MOD_KUNENA_FP_PERSONALTEXT_DESC">
+					<option value="">MOD_KUNENA_FP_HIDE</option>
+					<option value="1">MOD_KUNENA_FP_SHOW</option>
+				</field>
+				<field name="k_fp_profilelink" type="radio" default="" label="MOD_KUNENA_FP_PROFILELINK" description="MOD_KUNENA_FP_PROFILELINK_DESC">
+					<option value="">MOD_KUNENA_FP_HIDE</option>
+					<option value="1">MOD_KUNENA_FP_SHOW</option>
+				</field>
+				<field name="k_fp_profilelinktext" type="text" default="View Profile" label="MOD_KUNENA_FP_PROFILELINKTEXT" description="MOD_KUNENA_FP_PROFILELINKTEXT_DESC" />
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="cache" type="list" default="1" label="MOD_KUNENA_FP_CACHING" description="MOD_KUNENA_FP_CACHING_DESC">
+					<option value="0">MOD_KUNENA_FP_NEVER</option>
+				</field>
+				<field name="moduleclass_sfx" type="text" default="" label="MOD_KUNENA_FP_PARAMMODULECLASSSUFFIX" description="MOD_KUNENA_FP_PARAMMODULECLASSSUFFIX_DESC" />
+			</fieldset>
+			
+		</fields>
+	</config>
+</install>

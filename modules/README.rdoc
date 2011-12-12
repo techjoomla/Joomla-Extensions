@@ -1,0 +1,8 @@
+=mod_kunena_fp (1.7)
+Shows the details about a Kunena user 
+
+=mod_deals (1.6)
+Shows details about a SOBI item (Developed for dealsinjoomla.com)
+
+=mod_djimageslider (1.6)
+Slider that shows images of SOBI items
