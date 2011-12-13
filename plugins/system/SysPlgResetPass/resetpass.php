@@ -36,10 +36,13 @@ class plgSystemResetpass extends JPlugin
 				$userid 	= $this->UpdatePassword($users, $randpass);				
 			}			
 				
+			echo "Password reset successfully. Please check your email for the new password.";
+			jexit(0);
+
     	}
     	
-    	echo "Password reset successfully. Please check your email for the new password.";
-    	jexit(0);
+    	//echo "Password reset successfully. Please check your email for the new password.";
+    	//jexit(0);
     }
     
     // Update the password
