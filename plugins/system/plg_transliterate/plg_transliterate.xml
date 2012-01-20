@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="community" method="upgrade">
+	<name>Transliterate</name>
+	<author>Techjoomla</author>
+	<creationDate>31st Dec 2011</creationDate>
+	<copyright>Techjoomla. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>extensions@techjoomla.com</authorEmail>
+	<authorUrl>http://www.techjoomla.com</authorUrl>	
+	<version>1.0</version>
+	<description>
+		This Plugin Indic Transliterate system for JomSocial input use
+	</description>
+
+	<files>
+		<filename plugin="plg_transliterate">plg_transliterate.php</filename>
+		<folder>plg_transliterate</folder>
+		
+	</files>
+
+	<languages folder="language/en-GB">
+        <language tag="en-GB">en-GB.plg_community_plg_transliterate.ini</language>
+    </languages>
+    
+   
+    <!-- Fields for Joomla 1.6.x and onwards -->
+ 
+	<config name="params">
+  	<fields name="params">
+    	<fieldset name="basic" label="Plugin Parameters">
+				
+		
+		    
+			<field name="select_language" type="radio" default="0" label="LBL_SELECT_LANGUAGE_LU" description="DESC_SELECT_LANGUAGE_LU">
+				<option value="1">Hindi/Marathi</option>
+				<option value="0">English</option>
+			</field>
+       </fieldset>
+    <!--  <fieldset name="legacy" label="Legacy Parameters">
+      	<field name="select_language_usr" type="radio" default="0" label="LBL_SELECT_LANGUAGE_LU" description="DESC_SELECT_LANGUAGE_LU">
+				<option value="1">Hindi/Marathi</option>
+				<option value="0">English</option>
+			</field>
+				
+			</fieldset>-->
+		</fields>
+	</config>
+ 
+</install>

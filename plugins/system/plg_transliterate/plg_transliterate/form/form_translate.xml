@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <form>
+  	<fields name="translate">
+    	<fieldset name="legacy" >
+	<field name="select_language_usr" type="radio" default="0" label="LBL_SELECT_LANGUAGE_LU" description="DESC_SELECT_LANGUAGE_LU">
+				<option value="1">Hindi</option>
+				<option value="0">English</option>
+			</field>
+			</fieldset>
+		</fields>
+	</form>
+  
+
