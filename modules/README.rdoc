@@ -6,3 +6,6 @@ Shows details about a SOBI item (Developed for dealsinjoomla.com)
 
 =mod_djimageslider (1.6)
 Slider that shows images of SOBI items
+
+=mod_topsearchterm (1.7)
+Lists top search terms. Needs search statistics to be on.
