@@ -1,0 +1,291 @@
+<?php
+  
+defined('_JEXEC') or die('Restricted access'); 
+$document =& JFactory::getDocument();
+?>
+<head>
+<style type="text/css">
+
+fieldset {
+    border: 1px solid#ccc;
+    width: 640px;
+    margin: 5px;
+    padding: 15px;    
+}
+a {
+    color: black;
+}
+a:hover {
+    color: maroon;
+}
+.leftbox {
+	padding: 2%;
+	float:left;
+	width: 45%
+   } 
+  .leftbox2 {
+	padding: 2%;
+	float:left;
+	width: 85%
+   }   
+   
+ .leftbox1 {
+	
+	float:left;
+   } 
+.center1 {
+	
+	float:center;
+   } 
+.rightbox
+{
+padding: 2%;
+float:right;
+width: 45%
+}
+.cls1{
+}
+.rightbox1
+{
+padding: 2%;
+float:center;
+width: 80%
+}
+label.error { float: none; color: red; padding-left: .3em; vertical-align: bottom; }
+.rightbox1
+{
+padding: 2%;
+float:center;
+width: 80%
+}
+{
+width: 80px;
+}
+.addMoreFields{ float:right;clear:right;}
+.removeFields{ float:left;clear:left;}
+</style>
+<script src="components/com_videoseries/js/jquery-latest.js"></script>
+<script type="text/javascript" src="components/com_videoseries/js/jquery.validate.js"></script>
+<script type="text/javascript" src="components/com_videoseries/js/jquery.multiFieldExtender.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function () 
+	{
+    	jQuery(".addressDetails").EnableMultiField();
+    	jQuery("#form1").validate();
+    	//jQuery(".addressDetails").EnableMultiField().val()='';	
+	});
+	
+</script>	
+<h1 class="componentheading"><?php echo JText::_('EDIT_SERIES'); ?></h1>
+</head>
+	<?php 
+	$checkuser = JFactory::getUser();
+	$itemidnew = $this->itemid1;
+	$back = JRoute::_('index.php?option=com_videoseries&view=listseries&Itemid='.$itemidnew);
+	if ($checkuser->get('gid')>0)
+	{
+	?>
+	
+	<form action="" id="form1" method="post" name="adminForm">
+	<table colspan="4" width="80%" cellspacing="3"  cellpadding="3">
+	<?php 
+	$id = JRequest::getVar('cid');
+	if($id!=0)
+	{ 
+	 	foreach($this->result as $info)
+	 	{
+		$vs_id=$info->vs_id;
+		$name=$info->vs_name; 
+	 	$short=$info->shortcode;
+	  	$search=0;
+	  	$publish=0;
+	  		if($info->vs_searchable==1)
+	  		{
+	   			$search=1;
+	  		}
+	  		if($info->vs_published==1)
+	  		{
+	   			$publish=1;
+	  		}
+	 	}
+	}
+	?>
+ 	<tr>
+ 		<td>
+			<?php echo JText::_('SERIES_NAME');?>
+		</td>
+		<td>	
+			<input type="text" name ="seriesname" id="seriesname" value="<?php echo $name;?>" class="required inputbox">
+		</td>
+		<td>	
+			<?php echo JText::_('PUBLISHED');?>
+		</td>	
+		<td>
+			<?php if($publish==1) 
+		    {
+		    ?>
+		 	  	<input type="radio" name="group2" value="1" checked><?php echo JText::_('YES');?>
+			<?
+			}else
+			{
+			?>
+				<input type="radio" name="group2" value="1"><?php echo JText::_('YES');?>
+			<?php
+			}
+			if($publish==0) 
+			{
+			?>
+				<input type="radio" name="group2" value="0" checked><?php echo JText::_('NO');?>
+			<?
+			}
+			else
+			{
+			?>
+				<input type="radio" name="group2" value="0"><?php echo JText::_('NO');?>
+			<?php 
+			} ?>
+			
+		</td>
+		
+	</tr>
+ 	<tr>
+		<td>	
+			<?php echo JText::_('SHORT_CODE');?>
+		</td>
+		<td>
+			<input type="text" name="shortcode" id="shortcode" value="<?php echo $short;?>" class="required inputbox">
+		</td>
+		<td>			
+			<?php echo JText::_('SEARCHABLE');?>
+		</td>
+		<td>	
+		   	<?php	if($search==1) 
+		    	{
+		 	?>
+		 	 	<input type="radio" name="group1" value="1" checked><?php echo JText::_('YES');?>
+			<?
+			 }
+			else
+			 {
+			?>
+				<input type="radio" name="group1" value="1"><?php echo JText::_('YES');?>
+			<?php
+			}
+			if($search==0) 
+			{
+			?>
+				<input type="radio" name="group1" value="0" checked><?php echo JText::_('NO');?>
+			<?
+			}
+			else
+			{
+			?>
+				<input type="radio" name="group1" value="0"><?php echo JText::_('NO');?>
+			<?php 
+			} ?>
+		</td>
+		
+	</tr>
+  </table>
+   
+	<?php
+  	if($id!=0)
+	{	
+ 		$i=0;
+ 		foreach($this->result as $info1)
+		{ 
+		
+	?>   
+<fieldset class="addressDetails">
+			<table width="100%">
+			<tr>
+				<td class="leftbox">
+					<?php echo JText::_('BLOCKNAME');?><br/>
+					<input type="text"  id="blockname" name="blockname[]" value="<?php echo $info1->item_name;?>" class="required inputbox" size="21" />
+					</td>	
+				<td class="rightbox">
+					<?php echo JText::_('POSITION');?> <br/>	
+						<input type="text"  id="position" name="position[]"  class="inputbox" value="<?php echo $info1->item_order;?>" size="21" />
+				</td>		
+			</tr>
+			<tr>	
+	 			<td class="leftbox">
+	 				<?php echo JText::_('SHORT_DESCRIPTION');?><br/>	
+					<textarea rows="3" cols="68"  name="shortdescription[]" id="shortscription" class="inputbox"><?php echo $info1->item_sdesc;?></textarea>
+	 			</td>
+ 			</tr>
+ 			<tr>
+	 			<td class="leftbox2" >
+	 				<?php echo JText::_('LONG_DESCRIPTION');?><br/>
+ 					<?php $editor= & JFactory::getEditor();	
+					  echo $editor->display('longdescription[]',$info1->item_ldesc, '500', '200', '100', '100' ) 
+ 					?>
+				</td>
+		 	</tr>
+			<tr>	
+				<td>
+					<table>
+						<tr width="170%">
+							<td class="leftbox">
+	 			
+	 			<?php echo JText::_('VIDEO');
+	 			?>
+	 				<br/>
+					<?php 						    
+			 				//echo JHTML::_('select.genericlist',$this->result1,'vlink[]','class="pad_status" onchange="change(this.selectedIndex)" style="width:190px" size="1"',"id","title",$info1->item_title);
+			 				echo $lists = JHTML::_('select.genericlist', $this->result1, '.vlink[].', 'class="pad_status"', 'id', 'title', $info1->item_vid);
+						 /*}
+						 else
+						 { 
+						    
+						  $sel[0]->id = $info1->item_vid;
+						  $sel[0]->title = substr($info1->item_title,0,15);
+						 
+						 $sel = array_merge($sel, $this->result1);
+						  echo JHTML::_('select.genericlist',$sel,'.vlink[].','class="pad_status" onchange="change(this.selectedIndex)" style="width:190px" size="1"',"id","title");
+						 }*/
+					 ?>
+					 </td>
+	 			    <td width="37%" align="center"> 	<b>	<?php echo JText::_('OR');?></b> </td>
+					<td class="rightbox1">	
+						<?php echo JText::_('ENTER_AN_EXTERNAL_LINK');?><br/>
+							<input type="text" name ="linkvideo[]" id="linkvideo" value="<?php echo $info1->item_vlink;?>" class="inputbox" size="22" />
+					</td>	
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<a class="addMoreFields" href="#">Add Block</a>
+	 	</fieldset>
+	 	
+	<?php
+	 	}
+	 }
+	 ?>
+	 		<div>
+	 			<div style="float:left;"><a href="<?php echo $back; ?>"><?php echo JText::_('BACK_TO_LIST'); ?></a></div>	
+		 		<div style="text-align:right;">
+		 			<input type="submit" style="align:left" value="submit" class="button"  >
+				</div>
+			</div>	
+		
+		
+	 	
+	<input type="hidden" name="option" value="com_videoseries" />
+	<input type="hidden" name="controller" value="addseries" />
+	<input type="hidden" name="view" value="addseries" /> 
+    <input type="hidden" name="task" value="save" /> 
+    </form>
+	<?php
+	}
+	else
+	   echo JText::_('YOU_ARE_NOT_AUTHORIZED_TO_VIEW_THIS_PAGE');
+?>
+	
+	
+       
+
+
+
+

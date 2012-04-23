@@ -9,3 +9,6 @@ Slider that shows images of SOBI items
 
 =mod_topsearchterm (1.7)
 Lists top search terms. Needs search statistics to be on.
+
+=mod_mybanners (1.7/2.5)
+To be used with the com_mybanners component that displays banners based on IP address
