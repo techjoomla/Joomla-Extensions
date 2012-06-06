@@ -4,8 +4,8 @@
 	version="2.5"
 	client="site"
 	method="upgrade">
-	<name>My Banners</name>
-	<author>tekdi</author>
+	<name>IP Banners</name>
+	<author>Ashwin Date</author>
 	<creationDate>18 April 2012</creationDate>
 	<copyright></copyright>
 	<license></license>
@@ -17,7 +17,8 @@
 		<filename module="mod_mybanners">mod_mybanners.php</filename>
 		<folder>tmpl</folder>
 		<filename>helper.php</filename>
-		<filename>index.html</filename>		<filename>mod_mybanners.xml</filename>
+		<filename>index.html</filename>
+		<filename>mod_mybanners.xml</filename>
 	</files>
 	<languages>
 	</languages>

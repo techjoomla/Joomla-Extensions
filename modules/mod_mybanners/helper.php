@@ -1,11 +1,4 @@
 <?php
-/**
- * @version		$Id: helper.php 21421 2011-06-03 07:21:02Z infograf768 $
- * @package		Joomla.Site
- * @subpackage	mod_login
- * @copyright	Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
- * @license		GNU General Public License version 2 or later; see LICENSE.txt
- */
 
 // no direct access
 defined('_JEXEC') or die;
@@ -19,11 +12,12 @@ class modMybannersHelper
 	{
 		$db = JFactory::getDBO();
 		$ips = modMybannersHelper::getIP();
-		
+		$array=array();
+				
 		if (!$ips) { return false; }
 		
 		$ip=ip2long($ips);
-		//echo $ip;die;
+
 		$query="SELECT banner_id FROM #__banners_details WHERE banner_ips like '%".$ips."%'";
 		$db->setQuery($query);
 		$bannerids=$db->loadResult();
@@ -37,31 +31,13 @@ class modMybannersHelper
 		if ($bannerids) { $array[] = $bannerids; }
 		if ($banneridsrange) { $array[] = $banneridsrange; }
 		
-		/*
-		$array=array();
-		foreach($bannerids AS $bann)
-		{
-			array_push($array,$bann->banner_id);
-		}
-		foreach($banneridsrange AS $bann)
-		{
-			array_push($array,$bann->banner_id);
-		}*/
-		
 		$bannerid=implode(',',$array);
-				
-		$query3="SELECT banner_id,banner_code 
-		         FROM #__banners_details 
-		         WHERE banner_id IN (".$bannerid.") ORDER BY RAND()";
+		$query3 = "SELECT banner_id,banner_code 
+					FROM #__banners_details 
+					WHERE banner_id IN (".$bannerid.") ORDER BY RAND()";
 		$db->setQuery($query3);
 		$bannercodes=$db->loadObjectList();
 
-/*		if(!empty($bannercodes)) {
-		array_rand($bannercodes);
-	}*/
-		
-		//print_r($bannercodes);die;
-		//print_r($banneridsrange); die;
 		return $bannercodes;
 		
 	}
