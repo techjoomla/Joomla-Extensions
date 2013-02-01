@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="plugin" group="user" method="upgrade">
+	<name>plg_system_firstlogin</name>
+	<author>John William Wicks</author>
+	<creationDate>April 12th, 2012</creationDate>
+	<copyright>Copyright (c) 2012 - John William Wicks. All Rights Reserved.</copyright>
+	<license>GNU/GPLv2 - See http://opensource.org/licenses/gpl-2.0.php</license>
+	<authorUrl>http://jwwicks.com/</authorUrl>
+	<version>1.0.4</version>
+	<description>PLG_SYSTEM_FIRSTLOGIN_XML_DESC</description>
+	<files>
+		<filename plugin="firstlogin">firstlogin.php</filename>
+		<folder>language</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="route1"
+					   type="text"
+					   size="50"
+					   default="index.php?option=com_users&amp;view=profile&amp;layout=edit"
+					   label="PLG_SYSTEM_FIRSTLOGIN_DESTINATION"
+					   description="PLG_SYSTEM_FIRSTLOGIN_DESTINATION_DESC"/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
+
