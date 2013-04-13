@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright © 2012 Techjoomla
+# Copyright © 2012-13 Techjoomla
 # Licensed under GNU General Public License v2.0
 
 #Example usage
