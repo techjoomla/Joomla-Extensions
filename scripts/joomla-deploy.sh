@@ -6,28 +6,28 @@ EXAMPLE_VALUES="./joomla-deploy.sh 0.8.3 0.8.2 alpha"
 # if no arg passed $# will be 0
 if [ $# -eq 0 ]
 then
-    echo "Usage: $EXAMPLE_USAGE"
+	echo "Usage: $EXAMPLE_USAGE"
 	echo "Example Syntax: $EXAMPLE_VALUES"
-	exit
+	exit;
 fi
 
 # Check if deployment versions are provided
 if [ ! $1 ]; then
-    echo "Please provide deployment version."
+	echo "Please provide deployment version."
 	echo "Example Usage $EXAMPLE_USAGE"
-    exit
+	exit;
 fi
 
 if [ ! $2 ]; then
-    echo "Please provide the deployment version to move the image files & zoo config files from"
+	echo "Please provide the deployment version to move the image files & zoo config files from"
 	echo "Example Usage $EXAMPLE_USAGE"
-    exit
+	exit;
 fi
 
 if [ ! $3 ]; then
 	echo "Please provide environment"
 	echo "Example Usage $EXAMPLE_USAGE"
-	exit
+	exit;
 fi
 
 # Var defs
@@ -48,20 +48,20 @@ ZOO_OLD=$DEPLOYMENT_OLD"/media/zoo/applications/blog/types/*"
 ROOT_ASSETS=/var/vhosts/example.com/root-assets
 
 if [ ! -d "$DEPLOYMENT_OLD" ]; then
-    echo "Old deployment version ($DEPLOYMENT_OLD) does not exist. Aborting."
+    echo "ERROR: Old deployment version ($DEPLOYMENT_OLD) does not exist. Aborting."
     exit
 fi
 
 #Step 1
 cd $GIT_PATH && git pull origin master && git pull --tags
 
-#Step 2 
+#Step 2  @TODO -- Supress git messages
 git checkout $1
 success=$?
 if [[ $success -eq 0 ]]; then
-    echo "Tag checked out. Proceeding with deployment"
+	echo "GOOD: Tag checked out. Proceeding with deployment"
 else
-	echo "Tag not found. Aborting"
+	echo "ERROR: Tag not found. Aborting"
 	exit;
 fi
 
@@ -70,7 +70,7 @@ fi
 mkdir $DEPLOYMENT_NEW
 success=$?
 if [[ $success -eq 0 ]]; then
-    echo "GOOD: Deployment directory created ($DEPLOYMENT_NEW)"
+	echo "GOOD: Deployment directory created ($DEPLOYMENT_NEW)"
 else
 	echo "ERROR: Deployment directory already exists or no permissions. Aborting"
 	exit;
