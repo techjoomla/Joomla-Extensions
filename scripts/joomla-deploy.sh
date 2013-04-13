@@ -1,3 +1,8 @@
+#!/bin/bash
+
+# Copyright © 2012 Techjoomla
+# Licensed under GNU General Public License v2.0
+
 #Example usage
 EXAMPLE_USAGE="./joomla-deploy.sh <deployment version> <old version> <environment>"
 EXAMPLE_VALUES="./joomla-deploy.sh 0.8.3 0.8.2 alpha"
@@ -46,6 +51,8 @@ ZOO_OLD=$DEPLOYMENT_OLD"/media/zoo/applications/blog/types/*"
 
 #Root assets location -- htaccess files etc
 ROOT_ASSETS=/var/vhosts/example.com/root-assets
+
+# Don't modify anything beyond this point unless you know what you're doing
 
 if [ ! -d "$DEPLOYMENT_OLD" ]; then
     echo "ERROR: Old deployment version ($DEPLOYMENT_OLD) does not exist. Aborting."
