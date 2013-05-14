@@ -1,3 +1,9 @@
+[mytransifexprojectslug]
+myproject/trunk/admin/lang
+myproject/trunk/site/lang
+myproject/trunk/mod_myproject1/lang
+myproject/trunk/mod_myproject2/lang
+
 [socialads]
 socialads/trunk/site/lang
 socialads/trunk/admin/lang
@@ -11,8 +17,4 @@ invitex/trunk/site/language
 invitex/trunk/admin/language
 invitex/trunk/mod_invite_anywhere/language
 
-[myproject]
-myproject/trunk/admin/lang
-myproject/trunk/site/lang
-myproject/trunk/mod_myproject1/lang
-myproject/trunk/mod_myproject2/lang
+

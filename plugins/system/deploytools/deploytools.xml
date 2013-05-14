@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="system">
+	<name>plg_system_deploytools</name>
+	<author>Techjoomla</author>
+	<creationDate>8th May 2013</creationDate>
+	<copyright>Copyright (C) 2013 Techjoomla. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>contact@techjoomla.com</authorEmail>
+	<authorUrl>http://www.techjoomla.com</authorUrl>
+	<version>1.0</version>
+	<description>Tools to help simplify Joomla website deployments</description>
+
+	<files>
+		<filename plugin="deploytools">deploytools.php</filename>
+	</files>
+
+	<config>
+	<fields name="params">
+
+	<fieldset name="basic">
+		<field name="version_no" type="text" label="Version Number" description="Use the version number to denote the version your website is in" />
+		<field name="version_filename" type="text" label="Version Filename" description="If you want the plugin to pick up the version number from a file, specify the file name/path. This is relative to Joomla root. Note that you will need to keep the above field empty to use this option." default=".htversion" />
+		<field	name="process_css" type="radio"
+			default="0"
+			description="If set to yes, will append the version number to all CSS files loaded on the site"
+			label="Process CSS Files"
+		>
+			<option
+				value="0">JNo</option>
+			<option
+				value="1">JYes</option>
+		</field>
+		<field	name="process_js" type="radio"
+			default="0"
+			description="If set to yes, will append the version number to all javascript files loaded on the site"
+			label="Process JS Files"
+		>
+			<option
+				value="0">JNo</option>
+			<option
+				value="1">JYes</option>
+		</field>
+		</fieldset>
+
+	</fields>
+	</config>
+</extension>
