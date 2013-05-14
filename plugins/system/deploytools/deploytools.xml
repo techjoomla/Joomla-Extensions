@@ -40,6 +40,7 @@
 			<option
 				value="1">JYes</option>
 		</field>
+		<field name="remove_external_files" type="textarea" label="Remove External JS" description="If set to yes, stop the external JS files from loading. CAUTION: This may break your site." />
 		</fieldset>
 
 	</fields>

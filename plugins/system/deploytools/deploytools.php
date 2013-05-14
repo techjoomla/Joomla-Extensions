@@ -24,6 +24,8 @@ class plgSystemDeployTools extends JPlugin
 		
 		$version_filename = $this->params->get('version_filename');
 		$version_file = JPATH_SITE.DIRECTORY_SEPARATOR.$version_filename;
+		$excluded_files = $this->params->get('remove_external_files');
+		$excluded_files = explode("\n", $excluded_files);
 		
 		// Find out version number. If no version number, exit
 		if ($this->params->get('version_no')) {
@@ -41,6 +43,10 @@ class plgSystemDeployTools extends JPlugin
 		if ($this->params->get('process_css', 1)) {
 			$newarray = array();
 			foreach ($headerstuff['styleSheets'] as $key => $value) {
+				if ($this->params->get('remove_external_files') && in_array($key, $excluded_files)) {
+					continue;
+				}
+				
 				$str = (strstr($key, '?')) ? $key."&amp;".$version : $key."?".$version;
 				$newarray[$str] = $value;
 					   
@@ -51,6 +57,10 @@ class plgSystemDeployTools extends JPlugin
 		if ($this->params->get('process_js', 1)) {
 			$newarray = array();
 			foreach ($headerstuff['scripts'] as $key => $value) {
+				if ($this->params->get('remove_external_files') && in_array($key, $excluded_files)) {
+					continue;
+				}
+				
 				$str = (strstr($key, '?')) ? $key."&amp;".$version : $key."?".$version;
 				$newarray[$str] = $value;
 					   
